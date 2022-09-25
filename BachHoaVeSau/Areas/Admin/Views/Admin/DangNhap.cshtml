@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Dang Nhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- FORM LOGIN -->
+<div class="container">
+    <div class="row">
+        <div class="group-box col-md-4 mx-auto">
+            <form class="login" id="login" method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" required class="form-control" name="username" id="username" placeholder="Nhập Username">
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input required type="password" class="form-control" name="password" id="password" placeholder="Nhập Password">
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" checked id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Nhớ tài khoản</label>
+                </div>
+                <div class="form-group">
+                    <p class="text-danger">
+                        @TempData["error"]
+                    </p>
+                </div>
+                <button type="submit" class="btn btn-success">Đăng nhập</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

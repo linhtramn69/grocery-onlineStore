@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CuaHangBachHoaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DONDAT">
+    <Key>
+      <PropertyRef Name="MADONDAT" />
+    </Key>
+    <Property Name="MADONDAT" Type="Int32" Nullable="false" />
+    <Property Name="NGAYGIO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SDTNHAN" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TONG" Type="Int32" Nullable="false" />
+    <Property Name="TRANGTHAI" Type="Int32" Nullable="false" />
+    <Property Name="DIACHINHAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CHITIETDONDATs" Relationship="Self.FK_CHITIETDONDAT_DONDAT" FromRole="DONDAT" ToRole="CHITIETDONDAT" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_DONDAT_KHACHHANG" FromRole="DONDAT" ToRole="KHACHHANG" />
+    <NavigationProperty Name="HOADONs" Relationship="Self.FK_HOADON_DONDAT" FromRole="DONDAT" ToRole="HOADON" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MAHOADON" />
+    </Key>
+    <Property Name="MAHOADON" Type="Int32" Nullable="false" />
+    <Property Name="NGAYGIO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TONG" Type="Int32" Nullable="false" />
+    <Property Name="MADONDAT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DONDAT" Relationship="Self.FK_HOADON_DONDAT" FromRole="HOADON" ToRole="DONDAT" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DONDATs" Relationship="Self.FK_DONDAT_KHACHHANG" FromRole="KHACHHANG" ToRole="DONDAT" />
+  </EntityType>
+  <EntityType Name="LOAISANPHAM">
+    <Key>
+      <PropertyRef Name="MALSP" />
+    </Key>
+    <Property Name="MALSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SANPHAMs" Relationship="Self.FK__SANPHAM__MALSP__1273C1CD" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="SANPHAM">
+    <Key>
+      <PropertyRef Name="MASP" />
+    </Key>
+    <Property Name="MASP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NSX" Type="DateTime" Precision="0" />
+    <Property Name="DONGIA" Type="Int32" />
+    <Property Name="DONVITINH" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="SLTONKHO" Type="Int32" />
+    <Property Name="MALSP" Type="Int32" />
+    <Property Name="FLAG" Type="Boolean" />
+    <Property Name="DEAL" Type="Boolean" />
+    <Property Name="HINHANH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK__SANPHAM__MALSP__1273C1CD" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
+    <NavigationProperty Name="CHITIETDONDATs" Relationship="Self.FK_CHITIETDONDAT_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETDONDAT" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="CHITIETDONDAT">
+    <Key>
+      <PropertyRef Name="SOLUONG" />
+      <PropertyRef Name="TONG" />
+      <PropertyRef Name="MASP" />
+      <PropertyRef Name="MADONDAT" />
+    </Key>
+    <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+    <Property Name="TONG" Type="Int32" Nullable="false" />
+    <Property Name="MASP" Type="Int32" Nullable="false" />
+    <Property Name="MADONDAT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DONDAT" Relationship="Self.FK_CHITIETDONDAT_DONDAT" FromRole="CHITIETDONDAT" ToRole="DONDAT" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CHITIETDONDAT_SANPHAM" FromRole="CHITIETDONDAT" ToRole="SANPHAM" />
+  </EntityType>
+  <Association Name="FK_CHITIETDONDAT_DONDAT">
+    <End Role="DONDAT" Type="Self.DONDAT" Multiplicity="1" />
+    <End Role="CHITIETDONDAT" Type="Self.CHITIETDONDAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONDAT">
+        <PropertyRef Name="MADONDAT" />
+      </Principal>
+      <Dependent Role="CHITIETDONDAT">
+        <PropertyRef Name="MADONDAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONDAT_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+    <End Role="DONDAT" Type="Self.DONDAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DONDAT">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOADON_DONDAT">
+    <End Role="DONDAT" Type="Self.DONDAT" Multiplicity="1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONDAT">
+        <PropertyRef Name="MADONDAT" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MADONDAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SANPHAM__MALSP__1273C1CD">
+    <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISANPHAM">
+        <PropertyRef Name="MALSP" />
+      </Principal>
+      <Dependent Role="SANPHAM">
+        <PropertyRef Name="MALSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETDONDAT_SANPHAM">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+    <End Role="CHITIETDONDAT" Type="Self.CHITIETDONDAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="MASP" />
+      </Principal>
+      <Dependent Role="CHITIETDONDAT">
+        <PropertyRef Name="MASP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CuaHangBachHoaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DONDATs" EntityType="Self.DONDAT" />
+    <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
+    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="LOAISANPHAMs" EntityType="Self.LOAISANPHAM" />
+    <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="CHITIETDONDATs" EntityType="Self.CHITIETDONDAT" />
+    <AssociationSet Name="FK_CHITIETDONDAT_DONDAT" Association="Self.FK_CHITIETDONDAT_DONDAT">
+      <End Role="DONDAT" EntitySet="DONDATs" />
+      <End Role="CHITIETDONDAT" EntitySet="CHITIETDONDATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONDAT_KHACHHANG" Association="Self.FK_DONDAT_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="DONDAT" EntitySet="DONDATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOADON_DONDAT" Association="Self.FK_HOADON_DONDAT">
+      <End Role="DONDAT" EntitySet="DONDATs" />
+      <End Role="HOADON" EntitySet="HOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SANPHAM__MALSP__1273C1CD" Association="Self.FK__SANPHAM__MALSP__1273C1CD">
+      <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETDONDAT_SANPHAM" Association="Self.FK_CHITIETDONDAT_SANPHAM">
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+      <End Role="CHITIETDONDAT" EntitySet="CHITIETDONDATs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

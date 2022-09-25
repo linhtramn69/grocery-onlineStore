@@ -1,0 +1,129 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SANPHAM>
+
+@{
+    ViewBag.Title = "listSp";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- SẢN PHẨM -->
+<div class="col-xl-10 mt-2">
+    <div class="container-fluid ps-1">
+        <div class="row mb-3 mt-2">
+            <div class="col-md-2">
+                <select class="form-select">
+                    <option selected>Sắp xếp theo</option>
+                    <option>Loại sản phẩm</option>
+                    <option>Tên</option>
+                    <option>Thời gian</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select">
+                    <option selected>Tìm theo</option>
+                    <option>Loại sản phẩm</option>
+                    <option>Tên</option>
+                    <option>Thời gian</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option selected>Xem tất cả sản phẩm</option>
+                    <option>Loại sản phẩm</option>
+                    <option>Tên</option>
+                    <option>Thời gian</option>
+                </select>
+            </div>
+            <div class="d-grid col-md-5 gap-2 d-md-flex justify-content-md-end">
+                <button type="button" class="btn btn-success new">
+                    <i class="fas fa-plus pe-1"></i>
+                    @Html.ActionLink("Thêm Mới", "CreateProduct")
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered align-middle table-hover text-center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th style="width:280px;">Tên Sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Đơn vị</th>
+                <th>SL tồn</th>
+                <th>NSX</th>
+                <th>Hình ảnh</th>
+                <th>Tác vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.MASP
+                    </td>
+                    <td style="width:280px;">
+                        @item.TENSP
+                    </td>
+                    <td>
+                        @item.DONGIA
+                    </td>
+                    <td>
+                        @item.DONVITINH
+                    </td>
+                    <td>
+                        @item.SLTONKHO
+                    </td>
+                    <td>
+                        @String.Format("{0:dd-MM-yyyy}", item.NSX)
+                    </td>
+                    <td>
+                        <img width="100" src="@Url.Content("/Content/" + @item.HINHANH)" alt="">
+                    </td>
+                    <td class="p-0">
+                        <button type="button" class="editProduct btn-action btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#editProduct">
+                            @Html.ActionLink("Sửa", "EditProduct", new { id = item.MASP })
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                            @Html.ActionLink("Xóa", "DeleteProduct", new { id = item.MASP })
+                        </button>
+
+
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+
+    <div>
+        <div class="pagination justify-content-center d-flex flex-column justify-content-center text-center">
+             
+                    <a  aria-label="Trang hiện tại">
+                        <span aria-hidden="true">
+                            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                        </span>
+                    </a>
+            
+
+                    <div class="d-flex justify-content-center p-2">
+
+                        @Html.PagedListPager(Model, page => Url.Action("listSp", new { page = page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+                    </div>
+
+            
+        </div>
+</div>
+
+
+
+

@@ -1,0 +1,100 @@
+﻿@model BachHoaVeSau.SANPHAM
+
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="col-xl-10 mt-2">
+    <h3 class="text-center">Bạn có thật sự muốn xóa? </h3>
+    <div class="d-flex align-items-center justify-content-center">
+
+        <table class="table table-bordered w-75 mt-3 mb-3">
+            <tr>
+                <td>
+                    Mã sản phẩm:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.MASP)
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    Tên sản phẩm:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TENSP)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mã loại sản phẩm:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.MALSP)
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    Ngày sản xuất:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.NSX)
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    Đơn giá:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.DONGIA)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Đơn vị tính:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.DONVITINH)
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    Số lượng tồn kho:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SLTONKHO)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hình ảnh:
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.HINHANH)
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-danger" /> |
+                <button class="btn btn-primary">
+                    @Html.ActionLink("Trở về", "listSp")
+                </button>
+                
+            </div>
+        }
+    </div>
+        
+
+    </div>

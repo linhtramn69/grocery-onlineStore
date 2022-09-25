@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CuaHangBachHoaModelStoreContainer" CdmEntityContainer="CuaHangBachHoaEntities">
+    <EntitySetMapping Name="DONDATs">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.DONDAT">
+        <MappingFragment StoreEntitySet="DONDAT">
+          <ScalarProperty Name="MADONDAT" ColumnName="MADONDAT" />
+          <ScalarProperty Name="NGAYGIO" ColumnName="NGAYGIO" />
+          <ScalarProperty Name="SDTNHAN" ColumnName="SDTNHAN" />
+          <ScalarProperty Name="TONG" ColumnName="TONG" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="DIACHINHAN" ColumnName="DIACHINHAN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONs">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.HOADON">
+        <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="MAHOADON" ColumnName="MAHOADON" />
+          <ScalarProperty Name="NGAYGIO" ColumnName="NGAYGIO" />
+          <ScalarProperty Name="TONG" ColumnName="TONG" />
+          <ScalarProperty Name="MADONDAT" ColumnName="MADONDAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAISANPHAMs">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.LOAISANPHAM">
+        <MappingFragment StoreEntitySet="LOAISANPHAM">
+          <ScalarProperty Name="MALSP" ColumnName="MALSP" />
+          <ScalarProperty Name="TENLSP" ColumnName="TENLSP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SANPHAMs">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.SANPHAM">
+        <MappingFragment StoreEntitySet="SANPHAM">
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="TENSP" ColumnName="TENSP" />
+          <ScalarProperty Name="NSX" ColumnName="NSX" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
+          <ScalarProperty Name="SLTONKHO" ColumnName="SLTONKHO" />
+          <ScalarProperty Name="MALSP" ColumnName="MALSP" />
+          <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+          <ScalarProperty Name="DEAL" ColumnName="DEAL" />
+          <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETDONDATs">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.CHITIETDONDAT">
+        <MappingFragment StoreEntitySet="CHITIETDONDAT">
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="TONG" ColumnName="TONG" />
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="MADONDAT" ColumnName="MADONDAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIOHANGs">
+      <EntityTypeMapping TypeName="CuaHangBachHoaModel.GIOHANG">
+        <MappingFragment StoreEntitySet="GIOHANG">
+          <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+          <ScalarProperty Name="IDGIOHANG" ColumnName="IDGIOHANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CHITIETGIOHANG" TypeName="CuaHangBachHoaModel.CHITIETGIOHANG" StoreEntitySet="CHITIETGIOHANG">
+      <EndProperty Name="SANPHAM">
+        <ScalarProperty Name="MASP" ColumnName="MASP" />
+      </EndProperty>
+      <EndProperty Name="GIOHANG">
+        <ScalarProperty Name="IDGIOHANG" ColumnName="IDGIOHANG" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

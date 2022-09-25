@@ -1,0 +1,194 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+html {
+  background-color: rgb(240, 240, 240);
+}
+a {
+  text-decoration: none;
+}
+#onlogin {
+  display: none;
+}
+
+/* ----------------------------- */
+/* ------HEADER----- */
+/* ------------------------------*/
+header .nav-link {
+  transition: all 0.3s ease;
+}
+header .nav-link:hover {
+  /* background-color: #7db39a88; */
+  background-color: #7db39a88;
+  border-radius: 3px;
+}
+#onlogin .dropdown-menu {
+  left:-100px;
+}
+/* ----------------------------- */
+/* ------MENU----- */
+/* ------------------------------*/
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle::after {
+  width: 1.25em;
+  line-height: 0;
+  position: absolute;
+  right: 10px;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform 0.35s ease;
+  transform-origin: 0.5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, 0.85);
+}
+.btn-toggle[aria-expanded="true"]::after {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: 0.1875rem 0.5rem;
+  margin-top: 0.125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+.scrollarea {
+  overflow-y: auto;
+}
+
+/* ----------------------------- */
+/* ------MAIN-CONTAINER----- */
+/* ------------------------------*/
+.group-product {
+  padding: 0;
+}
+
+.container {
+  padding: 0;
+  /* max-width: 1220px; */
+  width:100vw;
+}
+
+/* .container .row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+} */
+
+.group-title {
+  margin-left: calc(var(--bs-gutter-x) * 0.5);
+  max-width: 97%;
+}
+
+.group-title button {
+  border: 0;
+}
+
+/* ----------------------------- */
+/* ------MAIN-PRODUCT----- */
+/* ------------------------------*/
+.card {
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.card:hover,
+.card:active {
+  box-shadow: 0px 5px 10px 5px rgba(80, 79, 79, 0.815);
+}
+.card-body h5 {
+  font-size: 12pt;
+}
+
+.card-link button {
+  margin-top: -10px;
+}
+
+.card img {
+  max-width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  transition: all 1s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.list-group {
+  margin-top: -20px;
+}
+
+.breadcrumb {
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.rate {
+  color: #f0a500;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+/* ----------------------------- */
+/* ------FOOTER----- */
+/* ------------------------------*/
+.last {
+  margin-left: 3%;
+}
+
+.last ul {
+  display: inline-block;
+  margin-right: 9%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  list-style-type: none;
+  padding-left: 4%;
+}
+.last p {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.thong-tin {
+  font-size: 10px;
+  color: #888;
+}
+
+@media (max-width: 575px) {
+  .col-sm {
+    margin-top: 20px;
+    width: 70%;
+    margin-left: 15%;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .tintuc {
+    width:70%;
+    margin-left:15%;
+  }
+  #onlogin .dropdown-menu {
+    right:0;
+    left:auto;
+  }
+}
+
+
+/* Styled */
+.styled-shadow{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.styled-shadow{
+  background-color: white;
+}
+/* Styled */

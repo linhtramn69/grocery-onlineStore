@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/Image/favicons/xanhvang.png">
+    <title>USmart - Vì sức khỏe cộng đồng</title>
+    <!-- Bootstrap CSS -->
+    <link href="~/Assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Jquery -->
+    <script src="~/Assets/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Popper Bootstrap -->
+    <script src="~/Assets/lib/bootstrap/dist/js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap table JS -->
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap-table.min.js"></script>
+    <!-- Table mobile -->
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap-table-mobile.js"></script>
+    <!-- CSS -->
+    <link href="~/Assets/css/site.css" rel="stylesheet" />
+    <link href="~/Assets/css/style-chitietsanpham.css" rel="stylesheet" />
+    <link href="~/Assets/css/style-login.css" rel="stylesheet" />
+    <link href="~/Assets/css/style-logon.css" rel="stylesheet" />
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <link href="~/Assets/css/admin.css" rel="stylesheet" />
+</head>
+<body class="container">
+    <header class=" position-sticky" style="top: 0; z-index: 1000;">
+        <div class="navbar alert-success navbar-light navbar-expand-lg d-flex flex-wrap  justify-content-lg-start">
+            <div class="container-fluid">
+                <a href="TrangChu.html" class="navbar-brand ">
+                    <img src="~/Content/Image/favicons/xanhvang.png" width="60px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>@Html.ActionLink("Trang chủ", "Index", "Home", new { Name = "" }, new { id = "" })</li>
+                        <li>@Html.ActionLink("Sản phẩm", "SanPhamTheoLoai", "Product", new { Name = "" }, new { id = "" })</li>
+                        <li>@Html.ActionLink("Tin tức", "TinTuc", "Home", new { Name = "" }, new { id = "" })</li>
+                        <li>@Html.ActionLink("Khuyến mãi", "KhuyenMai", "Home", new { Name = "" }, new { id = "" })</li>
+                        <li>@Html.ActionLink("Giỏ hàng", "GioHang", "Home", new { Name = "" }, new { id = "" })</li>
+                        <style>
+                            a {
+                                color: black;
+                                text-decoration: none;
+                                margin-right: 15px;
+                            }
+                            a:hover {
+                                color: #FF5722;
+                            }
+                        </style>
+                    </ul>
+                    <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 btn-group">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm..."
+                               aria-label="Search">
+                        <button class="btn btn-success"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="text-end" role="group" id="offlogin">
+                        <a href="DangKy.html"><button type="button" class="btn btn-outline-dark me-2">Đăng ký</button></a>
+                        <a href="DangNhap.html"><button type="button" class="btn btn-outline-dark">Đăng nhập</button></a>
+                    </div>
+                    <div class="dropdown text-end" id="onlogin">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user fa-fw"></i>
+                            @*@{
+                                var username = HttpContext.Current.Session["username"].ToString();
+                                <span>@username</span>
+                            }*@
+                        </a>
+                        <ul class="dropdown-menu text-small position-absolute" aria-labelledby="dropdownUser1">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                                    </svg> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    </svg> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" id="signout">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                    </svg> Sign out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <!-- BUTTON CHAT -->
+            <i class="fa fa-comment-dots fa-2x text-success position-fixed"
+               style="bottom:50px; right:2rem; z-index: 1000;" data-bs-toggle="modal" data-bs-target="#chat"></i>
+            <!-- Modal -->
+            <div class="modal fade " id="chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-outline-success">
+                        <div class="modal-header bg-success">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Hiện đang ngoài khung giờ làm việc. Mong bạn hãy liên hệ sau
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BUTTON ON TOP PAGE -->
+            <a href="#header">
+                <i class="far fa-arrow-alt-circle-up fa-2x text-success position-fixed"
+                   style="bottom:10px; right:2rem; z-index: 1000;"></i>
+            </a>
+        </div>
+
+        @RenderBody();
+    </main>
+
+    <footer class="container">
+        <div class="last">
+            <p>Tổng đài: 1900.9999 - 028.1204.1708 (7:00 - 21:30)</p>
+            <div class="list-profile row">
+                <div class="col-md">
+                    <ul>
+                        <p>Chính sách</p>
+                        <li>
+                            <a href="#">Chính sách đổi trả</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách giao hàng</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách bảo mật</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <ul>
+                        <p>Dịch vụ</p>
+                        <li>
+                            <a href="#">Hướng dẫn mua hàng</a>
+                        </li>
+                        <li>
+                            <a href="#">Điều khoản dịch vụ</a>
+                        </li>
+                        <li>
+                            <a href="#">Hóa đơn điện tử</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <ul>
+                        <p>Thông tin</p>
+                        <li>
+                            <a href="#">Thông tin công ty</a>
+                        </li>
+                        <li>
+                            <a href="#">Quy chế hoạt động</a>
+                        </li>
+                        <li>
+                            <a href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <ul>
+                        <p>Phản hồi</p>
+                        <li>
+                            <a href="#">Khiếu nại khách hàng</a>
+                        </li>
+                        <li>
+                            <a href="#">Phản hồi khách hàng</a>
+                        </li>
+                        <li>
+                            <a href="#">Góp ý khách hàng</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="thong-tin">
+                © 2022. Công Ty Cổ Phần Thương Mại US. GPDKKD: 331471746 cấp ngày 29/11/2010. <br>
+                Giấy phép thiết lập mạng xã hội trên mạng (Số 0/GP-BTTTT) do khoa Công nghệ thông tin và truyền thông
+                cấp
+                ngày 10/05/2022. <br>
+                Trụ sở chính: Đại học Cần Thơ. <br>
+                Địa chỉ liên hệ: Khoa CNTT và truyền thông ĐHCT <br>
+                Email:lienhe@usmart.com <br>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="~/Assets/js/admin.js"></script>
+    <script src="~/Assets/js/ChiTietSanPham.js"></script>
+    <script src="~/Assets/js/GioHang.js"></script>
+    <script src="~/Assets/js/home.js"></script>
+    <script src="~/Assets/js/site.js"></script>
+    <script src="~/Assets/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿@model BachHoaVeSau.SANPHAM
+
+@{
+    ViewBag.Title = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-10 mt-2">
+    @using (Html.BeginForm("CreateProduct", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="addproduct" tabindex="-1" aria-labelledby="namemodal" aria-hidden="true">
+            <div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="namemodal">Thêm sản phẩm</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-2">
+                            <label for="tsp" class="form-label">Tên sản phẩm</label>
+                            @Html.EditorFor(model => model.TENSP, new { htmlAttributes = new { @class = "form-control",@required = true } })
+                            @Html.ValidationMessageFor(model => model.TENSP, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-2">
+                            <label for="lsp" class="form-label">Loại sản phẩm</label>
+                            @Html.EditorFor(model => model.MALSP, new { htmlAttributes = new { @class = "form-control",@required = true } })
+                            @Html.ValidationMessageFor(model => model.MALSP, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-2">
+                            <label for="money" class="form-label">Giá sản phẩm</label>
+                            @Html.EditorFor(model => model.DONGIA, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.DONGIA, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-2">
+                            <label for="dvt" class="form-label">Đơn vị tính</label>
+                            @Html.EditorFor(model => model.DONVITINH, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.DONVITINH, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-2">
+                            <label for="slt" class="form-label">Số lượng tồn</label>
+                            @Html.EditorFor(model => model.SLTONKHO, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.SLTONKHO, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-2">
+                            <label for="nsx" class="form-label">Ngày sản xuất</label>
+                            @Html.EditorFor(model => model.NSX, new { htmlAttributes = new { @class = "form-control",@required = true } })
+                            @Html.ValidationMessageFor(model => model.NSX, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-2">
+                            <label for="img" class="form-label">Hình ảnh</label>
+                            <input type="file" name="fileUpload" placeholder="Chọn hình ảnh đại diện" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-success">@Html.ActionLink("Trở về", "listSp")</button>
+                        <button type="submit" class="btn btn-success" id="add">Thêm</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,31 @@
+.login{
+  padding: 30px 20px 20px;
+}
+
+main{
+  margin-bottom: 50px;
+}
+.form-floating{
+  padding: 3px;
+}
+.form-floating>label{
+  padding-top: 0.75rem;
+}
+.form-floating>.form-control{
+  height: calc(1.5rem + 1.25rem);
+}
+.form-text{
+  text-align: center;
+  margin-top: -7px;
+}
+.group-box button{
+  margin-top: 20px;
+  margin-bottom: 15px;
+  height: 40px;
+}
+.form-text2{
+  margin-top: 15px;
+  text-align: center;
+  color: #888;
+  font-size: 10pt;
+}

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<BachHoaVeSau.LOAISANPHAM>
+
+<select class="form-select" id="lsp">
+    <option>---</option>
+    @foreach (var item in Model)
+    {
+        <option>@item.TENLSP</option>
+    }
+    <option>Khác</option>
+</select>

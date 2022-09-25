@@ -1,0 +1,219 @@
+﻿@model BachHoaVeSau.SANPHAM
+
+@{
+    ViewBag.Title = "ChiTietSP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <!-- MENU SẢN PHẨM -->
+    @Html.Action("LoaiPartial", "Home")
+    <!-- SẢN PHẨM -->
+
+    <div class="col-xl-9">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="row main-image">
+                    <img src="@Url.Content("~/Content/" + @Model.HINHANH)" class="img-main active-img" alt="">
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="content">
+                    <h4>@Html.DisplayFor(model => model.TENSP)</h4>
+                    <p>
+                    <p class="text-secondary">
+                        NSX: 
+                        @String.Format("{0:dd-MM-yyyy}", @Model.NSX)
+                        <span class="badge bg-danger rounded-pill">-31%</span>
+                    </p>
+                    <h4>
+                        @Html.DisplayFor(model => model.DONGIA)đ <span class="text-decoration-line-through text-secondary h5"> 123.000đ</span>
+                        / @Html.DisplayFor(model => model.DONVITINH)
+                    </h4>
+                    <span>Số lượng: </span><input type="number" id="number" value="1" min="1" max="100">
+                    </p>
+                    <div class="d-grid gap-2 d-md-block">
+
+                        <button class="btn btn-warning" type="button" id="sp002" onclick="addCard(id)">
+                            <a class="text-dark" href="GioHang.html">Mua ngay</a>
+                        </button>
+                        <button class="btn btn-success" id="sp002" type="button" onclick="addCard(id)">
+                            Thêm vào
+                            giỏ hàng
+                        </button>
+                    </div>
+                    <div class="alert alert-info" style="margin-top:20px;" role="alert">
+                        <strong>Khuyến mãi:</strong> Mua từ 2 sản phẩm trở lên được tặng quà
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        Đặt online <strong>giao tận nhà </strong>đúng giờ (nếu trễ tặng PMH 20.000₫) <br>
+                        Đổi trả sản phẩm trong 7 ngày( <a href="#" class="text-decoration-none">
+                            Xem điều
+                            khoản
+                        </a> )
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-10">
+                <section class="row">
+
+                    <p class="h5 title text-uppercase">Thông tin sản phẩm</p>
+                    <span>
+                        Surf là sản phẩm nước giặt thương hiệu đến từ Hà Lan và Anh, nước giặt Surf giúp sạch
+                        nhanh
+                        hiệu quả, đưa hương thơm lan toả dù ngày nắng hay mưa, giúp bạn tự tin với quần áo luôn
+                        thơm
+                        tho, sạch sẽ. Nước giặt Surf hương nước hoa túi 3 lít với hương cỏ hoa thơm mát dễ
+                        chịu
+                    </span>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="text-secondary col-2">Thương hiệu</td>
+                                <td>Surf (Anh và Hà Lan)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Sản xuất tại</td>
+                                <td>Việt Nam</td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Công dụng</td>
+                                <td>
+                                    Giặt sạch nhẹ nhàng, loại bỏ mùi hôi, khói bụi. Lưu lại hương thơm bền lâu
+                                    trên
+                                    áo
+                                    quần
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Mùi hương</td>
+                                <td>Hương nước hoa</td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Sử dụng</td>
+                                <td>Giặt tay, giặt máy cửa trên</td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Khối lượng</td>
+                                <td>3 lít</td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Hướng dẫn sử dụng</td>
+                                <td>
+                                    Xử lý vết bẩn trước khi giặt thoa 1 ít nước giặt lên vết bẩn và chà nhẹ.
+                                    Điều
+                                    chỉnh
+                                    lượng nước giặt tương ứng với lượng quần áo và độ bẩn. Đối với Giặt máy dùng
+                                    76ml
+                                    cho một lần giặt thông thường. Chọn chế độ giặt cho phù hợp. Đối với giặt
+                                    tay
+                                    dùng
+                                    38ml cho một lần giặt thông thường. Cho nước giặt vào chậu nước đánh mạnh để
+                                    tạo
+                                    bọt. Giặt quần áo
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Lưu ý</td>
+                                <td>
+                                    Kiểm tra độ bền màu trước khi sử dụng. Rửa sạch và lau khô tay sau khi dùng.
+                                    Để
+                                    xa
+                                    tầm tay trẻ em. Rửa sạch bằng nước nếu bị dây vào mắt
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-secondary col-2">Bảo quản</td>
+                                <td>Nơi khô ráo thoáng mát. Tránh tiếp xúc trực tiếp với ánh nắng mặt trời</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+                <section class="row">
+                    <p class="h5 title text-uppercase">Đánh giá sản phẩm</p>
+
+                    <div class="col-md-6">
+                        <div class="height-100 d-flex justify-content-center align-items-center">
+                            <div class=" p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="ratings">
+                                        <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i>
+                                    </div>
+                                    <h5 class="review-count">166 đánh giá</h5>
+                                </div>
+                                <div class="mt-5 d-flex justify-content-between align-items-center">
+                                    <h5 class="review-stat">100 đánh giá</h5>
+                                    <div class="small-ratings">
+                                        <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-1 d-flex justify-content-between align-items-center">
+                                    <h5 class="review-stat">40 đánh giá</h5>
+                                    <div class="small-ratings">
+                                        <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-1 d-flex justify-content-between align-items-center">
+                                    <h5 class="review-stat">20 đánh giá</h5>
+                                    <div class="small-ratings">
+                                        <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-1 d-flex justify-content-between align-items-center">
+                                    <h5 class="review-stat">5 đánh giá</h5>
+                                    <div class="small-ratings">
+                                        <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-1 d-flex justify-content-between align-items-center">
+                                    <h5 class="review-stat">1 đánh giá</h5>
+                                    <div class="small-ratings">
+                                        <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="justify-content-center mt-3">
+                            <p class="h5">Gửi đánh giá của bạn</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="stars">
+                                        <form action="">
+                                            <input class="star star-5" id="star-5" type="radio"
+                                                   name="star" /> <label class="star star-5" for="star-5"></label>
+                                            <input class="star star-4" id="star-4" type="radio" name="star" />
+                                            <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" />
+                                            <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" />
+                                            <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" />
+                                            <label class="star star-1" for="star-1"></label>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label h5">Nhận xét</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                          rows="2"></textarea>
+                            </div>
+                            <div class="position-relative">
+                                <button class="btn btn-success " type="button">Gửi</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

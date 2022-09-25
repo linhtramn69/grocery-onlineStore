@@ -1,0 +1,69 @@
+body{
+  background-color: rgb(240, 240, 240);
+}
+.group-box{
+  margin-top: 40px;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+  box-shadow: 0px 0px 0.5px 0.5px rgb(220, 220, 220);
+}
+@media screen and (max-width:971px){
+  .group-box{
+    width: 40%;
+  }
+}
+@media screen and (max-width:767px){
+  .group-box{
+    width: 60%;
+  }
+}
+.login{
+  padding-top: 40px;
+}
+.title h3{
+  text-align: center;
+}
+.group-box button{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.group-box a{
+  text-decoration: none;
+}
+.group-box a:hover{
+  color: #dc3545;
+}
+.group-box p{
+  font-size: 11pt;
+  color: #888;
+  text-align: center;
+}
+.check{
+  text-align: center;
+}
+label img{
+  width: 20px;
+  margin-top: -5px;
+}
+.google{
+  border: 1px solid rgb(220, 220, 220);
+}
+.google img{
+  width: 70px;
+}
+.check a{
+  color: white;
+}
+.check a :hover{
+  color: rgb(255, 255, 255);
+}
+
+
+.form-floating>.form-control{
+  height: calc(1.55rem + 1.55rem);
+}
+.form-floating>label{
+  padding-top: 0.75rem;
+}

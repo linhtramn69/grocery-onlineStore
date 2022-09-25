@@ -1,0 +1,90 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SANPHAM>
+@{
+    ViewBag.Title = "SanPhamTheoLoai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <!-- MENU SẢN PHẨM -->
+    @Html.Action("LoaiPartial", "Home")
+
+    <!-- SẢN PHẨM -->
+    <div class="col-md-8">
+        <!-- CÁC Ô SẢN PHẨM -->
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-4">
+                    <a href="">
+                        <div class="card">
+
+                            <a href="/Home/ChiTietSp/?id=@item.MASP">
+                                <img src="@Url.Content("/Content/" + @item.HINHANH)" class="card-img-top" alt="" />
+
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.TENSP</h5>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item text-danger">
+                                        @item.DONGIA VND
+                                        <span class="badge bg-danger rounded-pill">-33%</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="rate">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            (4,6/5)
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="card-body text-center">
+                                    <a href="#" class="card-link">
+                                        <button class="btn btn-outline-success" id=""
+                                                onclick="addCard(id);">
+                                            Thêm vào giỏ
+                                            hàng
+                                        </button>
+                                    </a>
+                                </div>
+                        </div>
+                    </a>
+                </div>
+
+            }
+
+        </div>
+
+
+
+        <!-- NEXT PAGE PRODUCT -->
+        <div>
+            <div class="pagination justify-content-center d-flex flex-column justify-content-center text-center">
+
+                <a aria-label="Trang hiện tại">
+                    <span aria-hidden="true">
+                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                    </span>
+                </a>
+
+
+                <div class="d-flex justify-content-center p-2">
+
+                    @Html.PagedListPager(Model, page => Url.Action("SanPhamTheoLoai", new { page = page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- NEWS -->
+    @{
+        Html.RenderPartial("_NewsPartial");
+    }
+</div>
+

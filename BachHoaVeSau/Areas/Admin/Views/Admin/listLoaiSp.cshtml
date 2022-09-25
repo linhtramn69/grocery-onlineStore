@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BachHoaVeSau.LOAISANPHAM>
+
+@{
+    ViewBag.Title = "listLoaiSp";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-10 mt-2">
+    <table class="table table-bordered align-middle table-hover text-center">
+        <thead>
+            <tr>
+                <th>Mã Loại</th>
+                <th>Tên</th>
+                <th>Tác vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.MALSP
+                    </td>
+                    <td>
+                        @item.TENLSP
+                    </td>
+                    <td class="p-0">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#addproduct" class="edit"><i class="text-danger fas fa-edit"></i></a><a href="" class="remove">
+                            <i class="ms-3 text-danger fas fa-times"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+            
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+    <div>
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="TrangChu.html" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="TrangChu.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="TrangChu1.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <li class="page-item">
+                <a class="page-link" href="TrangChu1.html" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+

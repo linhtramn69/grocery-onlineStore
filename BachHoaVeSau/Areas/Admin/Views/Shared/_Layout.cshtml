@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/favicons/xanhvang.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <title>Quản trị viên</title>
+    <!-- Bootstrap CSS -->
+    <link href="~/Assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Jquery -->
+    <script src="~/Assets/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Popper Bootstrap -->
+    <script src="~/Assets/lib/bootstrap/dist/js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap table JS -->
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap-table.min.js"></script>
+    <!-- Table mobile -->
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap-table-mobile.js"></script>
+    <link href="~/Assets/css/admin.css" rel="stylesheet" />
+
+</head>
+
+<body class="container">
+    <div id="header"></div>
+    <header class=" position-sticky" style="top: 0; z-index: 1000;">
+
+        <div class="navbar alert-success navbar-light navbar-expand-lg d-flex flex-wrap  justify-content-lg-start">
+            <div class="container-fluid">
+                <a href="TrangChu.html" class="navbar-brand ">
+                    <img src="~/Content/Image/favicons/xanhvang.png" width="60px" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>@Html.ActionLink("Trang chủ", "listSp", "Admin", new { Name = "" }, new { id = "" })</li>
+                        <li>@Html.ActionLink("Sản phẩm", "Index", "Home", new { Name = "" }, new { id = "" })</li>
+                        <li>@Html.ActionLink("Tin tức", "Index", "Home", new { Name = "" }, new { id = "" })</li>
+                        </style>
+                    </ul>
+                    <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 btn-group">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm..." aria-label="Search">
+                        <button class="btn btn-success"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="dropdown ">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user fa-fw"></i>
+                            @{ 
+                                var user = HttpContext.Current.Session["user"].ToString();
+                                <span>@user</span>
+                            }
+                        </a>
+                        <ul class="dropdown-menu text-small position-absolute" aria-labelledby="dropdownUser1">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                         height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                                    </svg> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                         height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    </svg> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="~/Admin/Admin/DangXuat">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right"
+                                         viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                              d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                                        <path fill-rule="evenodd"
+                                              d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                    </svg> Sign out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+        
+        <div class="row">
+            <!-- MENU SẢN PHẨM -->
+            <div class="col-xl-2 pe-0 menu">
+                <div class="position-sticky" style="top:5rem;">
+                    <div class="navbar navbar-expand-xl navbar-light ">
+                        <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupported" aria-controls="navbarSupported" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupported">
+                            <div>
+                                <button type="button" class="w-100 mb-2 btn btn-success">DANH MỤC QUẢN LÝ</button>
+
+                                <ul class="list-unstyled ps-0">
+                                    <li class="mb-2">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#mi-collapse"
+                                                aria-expanded="false">
+                                            Quản lý sản phẩm
+                                        </button>
+                                        <div class="collapse" id="mi-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li>
+                                                    @Html.ActionLink("Loại sản phẩm", "listLoaiSp", "Admin", new { Name = "" }, new { id = "" })
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("Sản phẩm", "listSp", "Admin", new { Name = "" }, new { id = "" })
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#thit-collapse"
+                                                aria-expanded="false">
+                                            Quản lý giao diện
+                                        </button>
+                                        <div class="collapse" id="thit-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="#" class="link-dark rounded">Slider</a></li>
+                                                <li><a href="#" class="link-dark rounded">Hình ảnh</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#hs-collapse"
+                                                aria-expanded="false">
+                                            Quản lý đơn hàng
+                                        </button>
+                                        <div class="collapse" id="hs-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="#" class="link-dark rounded">Danh sách đơn hàng</a></li>
+                                                <li><a href="#" class="link-dark rounded">Thiết lập thanh toán</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#r-collapse"
+                                                aria-expanded="false">
+                                            Quản lý thông tin
+                                        </button>
+                                        <div class="collapse" id="r-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="#" class="link-dark rounded">Khách hàng</a></li>
+                                                <li><a href="#" class="link-dark rounded">Liên hệ</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#tbyt-collapse"
+                                                aria-expanded="false">
+                                            Thống kê
+                                        </button>
+                                        <div class="collapse" id="tbyt-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="#" class="link-dark rounded">Thống kê doanh thu</a></li>
+                                                <li><a href="#" class="link-dark rounded">Thống kê đơn hàng</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed"
+                                                data-bs-toggle="collapse" data-bs-target="#dauan-collapse"
+                                                aria-expanded="false">
+                                            Quản lý thành viên
+                                        </button>
+                                        <div class="collapse" id="dauan-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li>
+                                                    @Html.ActionLink("Người dùng", "listUser", "Admin", new { Name = "" }, new { id = "" })
+                                                </li>
+                                                <li><a href="#" class="link-dark rounded">Nhân viên</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @RenderBody();
+            <style>
+                a {
+                    color: black;
+                    text-decoration: none;
+                    margin-right: 15px;
+                }
+
+                    a:hover {
+                        color: #FF5722;
+                    }
+            </style>
+        </div>
+    </main>
+    <script src="~/Assets/js/admin.js"></script>
+</body>
+
+</html>
